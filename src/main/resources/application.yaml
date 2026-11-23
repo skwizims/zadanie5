@@ -23,3 +23,10 @@ spring:
     user:
       name: ""
       password: ""
+
+app:
+  jwt:
+    # UTF-8 байты имени «Максим», повторённые до 32 байт (hex-представление)
+    secret-hex: d09cd0b0d0bad181d0b8d0bcd09cd0b0d0bad181d0b8d0bcd09cd0b0d0bad181
+    access-seconds: 900
+    refresh-seconds: 604800

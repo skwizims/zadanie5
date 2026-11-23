@@ -5,8 +5,8 @@ services:
     container_name: zadanie3-db
     environment:
       POSTGRES_DB: utility_db
-      POSTGRES_USER: app_user
-      POSTGRES_PASSWORD: app_password
+      POSTGRES_USER: service_user
+      POSTGRES_PASSWORD: service_pass
     ports:
       - "5432:5432"
     volumes:

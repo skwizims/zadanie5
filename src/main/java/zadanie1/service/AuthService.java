@@ -17,6 +17,12 @@ public class AuthService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    public User authenticate(String username, String rawPassword) {
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("Invalid credentials"));
+        if (!user.isEnabled() || !passwordEncoder.matches(rawPassword, user.getPassword())) throw new IllegalArgumentException("Invalid credentials");
+        return user;
+    }
+
     public User register(String username, String rawPassword, String fullName, String email, String phone) {
         if (username == null || username.isBlank()) {
             throw new IllegalArgumentException("Username is required");
